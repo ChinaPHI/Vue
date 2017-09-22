@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+
+</head>
+<body>
+<div id="box">
+  {{a}}
+  <br>
+  {{b}}
+  {{obj.name}}
+</div>
+<script>
+  let vm = new Vue({
+    el: "#box",
+    data: {
+      stark: "shudong",
+      a: 1111,
+      b: 2222,
+      obj: {
+        name: "stark",
+        age: 18
+      }
+    }
+  });
+  vm.$watch("obj", function() {
+    //obj是一个对象，需要深度监听，因此alert不弹出。
+    alert("this.obj.name");
+  },{
+    //deep表示深度监听
+    deep: true
+  });
+  document.onclick = function() {
+    vm.obj.name = "shudong"
+  }
+</script>
+</body>
+</html>
