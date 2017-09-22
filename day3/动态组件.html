@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+
+</head>
+<body>
+<div id="box">
+  <input type="button" @click="stark='hello'" name="" value="hello组件">
+  <input type="button" @click="stark='world'" name="" value="world组件">
+<component :is="stark"></component>
+</div>
+<script>
+  let vm = new Vue({
+    el: "#box",
+    data: {
+      stark: "hello"
+    },
+    components: {
+      "hello": {
+        template: `<div><h2>我是hello组件</h2></div>`
+      },
+      "world": {
+        template: `<div><h2>我是world组件</h2></div>`
+      }
+    }
+  })
+</script>
+</body>
+</html>

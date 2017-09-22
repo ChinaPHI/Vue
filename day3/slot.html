@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+
+</head>
+<body>
+  <div id="box">
+    <!--<shudong></shudong>-->
+    <!--<ul slot="ul-slot">-->
+      <!--<li>22</li>-->
+      <!--<li>21</li>-->
+      <!--<li>20</li>-->
+      <!--<li>替换默认的位置</li>-->
+    <!--</ul>-->
+    <shudong>
+      <div>我是内容</div>
+    </shudong>
+  </div>
+  <template id="aaa">
+    <div>
+      <h1>
+        slot开始
+      </h1>
+      <!--<slot name="ul-slot">-->
+        <!--ul-slot要替换的位置-->
+      <!--</slot>-->
+      <slot>
+        被替换
+      </slot>
+    </div>
+  </template>
+
+  <script>
+    let vm = new Vue({
+      el: "#box",
+      data: {
+        a: "aaa"
+      },
+      components: {
+        "shudong": {
+          template: "#aaa"
+        }
+      }
+    })
+  </script>
+</body>
+</html>
